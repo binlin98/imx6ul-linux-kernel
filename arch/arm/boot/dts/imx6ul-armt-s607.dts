@@ -307,6 +307,7 @@
 
 #endif
 
+#if 0
 &flexcan1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexcan1>;
@@ -320,6 +321,7 @@
 	xceiver-supply = <&reg_can_3v3>;
 	status = "okay";
 };
+#endif
 
 &gpc {
 	fsl,cpu_pupscr_sw2iso = <0x1>;
@@ -585,10 +587,10 @@
 				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00			0x17059			/*j22-9*/
 				MX6UL_PAD_CSI_DATA06__GPIO4_IO27			0x17059			/*j22-7*/
 				MX6UL_PAD_CSI_DATA07__GPIO4_IO28 			0x17059			/*j22-8*/
-				//MX6UL_PAD_GPIO1_IO03__GPIO1_IO03			0x17059			/*j22-5*/
-				//MX6UL_PAD_GPIO1_IO01__GPIO1_IO01			0x17059			/*j22-3*/
-				//MX6UL_PAD_GPIO1_IO02__GPIO1_IO02			0x17059			/*j22-4*/
-				//MX6UL_PAD_GPIO1_IO04__GPIO1_IO04 			0x17059			/*j22-6*/
+				MX6UL_PAD_GPIO1_IO03__GPIO1_IO03			0x17059			/*j22-5*/
+				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01			0x17059			/*j22-3*/
+				MX6UL_PAD_GPIO1_IO02__GPIO1_IO02			0x17059			/*j22-4*/
+				MX6UL_PAD_GPIO1_IO04__GPIO1_IO04 			0x17059			/*j22-6*/
 				
 			>;
 		};
@@ -717,8 +719,8 @@
 			fsl,pins = <
 				MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
 				MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
-				MX6UL_PAD_UART3_RX_DATA__UART2_DCE_RTS	0x1b0b1
-				MX6UL_PAD_UART3_TX_DATA__UART2_DCE_CTS	0x1b0b1
+				//MX6UL_PAD_UART3_RX_DATA__UART2_DCE_RTS	0x1b0b1
+				//MX6UL_PAD_UART3_TX_DATA__UART2_DCE_CTS	0x1b0b1
 			>;
 		};
 
@@ -726,11 +728,20 @@
 			fsl,pins = <
 				MX6UL_PAD_UART2_TX_DATA__UART2_DTE_RX	0x1b0b1
 				MX6UL_PAD_UART2_RX_DATA__UART2_DTE_TX	0x1b0b1
-				MX6UL_PAD_UART3_RX_DATA__UART2_DTE_CTS	0x1b0b1
-				MX6UL_PAD_UART3_TX_DATA__UART2_DTE_RTS	0x1b0b1
+				//MX6UL_PAD_UART3_RX_DATA__UART2_DTE_CTS	0x1b0b1
+				//MX6UL_PAD_UART3_TX_DATA__UART2_DTE_RTS	0x1b0b1
 			>;
 		};
 
+		pinctrl_uart3: uart3grp {
+			fsl,pins = <
+				MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX 	0x1b0b1
+				MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX 	0x1b0b1
+				MX6UL_PAD_UART3_CTS_B__UART3_DCE_CTS	0x1b0b1
+				MX6UL_PAD_UART3_RTS_B__UART3_DCE_RTS	0x1b0b1				
+			>;
+		};
+		
 		pinctrl_usdhc1: usdhc1grp {
 			fsl,pins = <
 				MX6UL_PAD_SD1_CMD__USDHC1_CMD     0x17059
@@ -888,6 +899,7 @@
 	status = "okay";
 };
 
+#if 0
 &tsc {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_tsc>;
@@ -896,6 +908,7 @@
 	measure_delay_time = <0xffff>;
 	pre_charge_time = <0xfff>;
 };
+#endif
 
 &uart1 {
 	pinctrl-names = "default";
@@ -910,6 +923,12 @@
 	/* for DTE mode, add below change */
 	/* fsl,dte-mode; */
 	/* pinctrl-0 = <&pinctrl_uart2dte>; */
+	status = "okay";
+};
+
+&uart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart3>;
 	status = "okay";
 };
 
