@@ -119,7 +119,7 @@
 		 * hp-det-polarity = 1: hp detect high for speaker
 		 */
 		hp-det = <3 0>;
-		//hp-det-gpios = <&gpio4 27 0>;
+		hp-det-gpios = <&gpio4 27 0>;
 		//mic-det-gpios = <&gpio4 27 0>;
 		audio-routing =
 			"Headset Jack", "HP_L",
