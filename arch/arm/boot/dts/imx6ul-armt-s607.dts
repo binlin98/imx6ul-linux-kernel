@@ -73,7 +73,7 @@
 			regulator-max-microvolt = <1400000>;
 			regulator-name = "gpio_dvfs";
 			regulator-type = "voltage";
-			gpios = <&gpio5 3 GPIO_ACTIVE_HIGH>;
+			//gpios = <&gpio5 3 GPIO_ACTIVE_HIGH>;
 			states = <1300000 0x1 1400000 0x0>;
 		};
 
